@@ -1,0 +1,246 @@
+List all bases in Hawaii alongside which branch operates them
+SELECT bases.site, bases.state, ComponentToBranch.branch  FROM bases INNER JOIN ComponentToBranch ON bases.component = ComponentToBranch.component WHERE bases.state = 'Hawaii';
+MCB Camp Smith,Hawaii, Marine
+MC Trng Area Bellows,Hawaii, Marine
+CSO Barbers Point HI,Hawaii, Navy
+Pohakuloa Training Area,Hawaii, Army
+Waianae Kai Military Reservation,Hawaii, Army
+Makaha Ridge,Hawaii, Navy
+Pupukea Paalaa Uka Mil Road,Hawaii, Army
+Helemano Military Reservation,Hawaii, Army
+USA Field Station Kunia,Hawaii, Army
+Kawaihae Mil Reserve,Hawaii, Army
+NG Kalaeloa,Hawaii, Army
+Aiea,Hawaii, Navy
+Ewa,Hawaii, Navy
+Honolulu,Hawaii, Navy
+Pearl City Annex,Hawaii, Marine
+Waipahu,Hawaii, Navy
+Kipapa Ammo Storage Site,Hawaii, Army
+Kamokala Ridge,Hawaii, Navy
+JBPHH Pearl Harbor HI,Hawaii, Navy
+Kahuku Tng Area,Hawaii, Army
+Kilauea Mil Reserve,Hawaii, Army
+Fort Shafter,Hawaii, Army
+Wahiawa,Hawaii, Navy
+Schofield Barracks Military Reservation,Hawaii, Army
+Puuloa-Oahu,Hawaii, Marine
+Bellows,Hawaii, Air Force
+Pearl City,Hawaii, Navy
+MCB Hawaii (Kaneohe Bay),Hawaii, Marine
+Tripler Army Medical Center,Hawaii, Army
+Fort De Russy,Hawaii, Army
+NG TS Keaukaha Mil Res,Hawaii, Army
+Aliamanu Military Reservation,Hawaii, Army
+Dillingham Mil Res,Hawaii, Army
+Makua Mil Reserve,Hawaii, Army
+Kalaeloa,Hawaii, Navy
+NG Ft Ruger,Hawaii, Army
+CNIC PMRF Barking Sands HI,Hawaii, Navy
+Ford Island,Hawaii, Navy
+Wheeler Army Airfield,Hawaii, Army
+
+List the branches of military with active bases in California
+SELECT DISTINCT ComponentToBranch.branch  FROM bases INNER JOIN ComponentToBranch ON bases.component = ComponentToBranch.component WHERE bases.state = 'California';
+ Air Force
+ Navy
+ Army
+ Marine
+
+Show the ten largest military bases by area
+SELECT site, area FROM bases ORDER BY area DESC LIMIT 10;
+Nellis Air Force Range,4513.48391200
+White Sands Missile Range NM,3548.57016400
+Fort Bliss,1742.55128300
+The Barry M Goldwater Air Force Range,1640.94082600
+Yuma Proving Ground,1307.98611000
+Dugway Proving Ground,1250.77026200
+Twentynine Palms,1190.21534000
+NTC and Fort Irwin,1180.20496200
+Barry Goldwater Range,1082.62380800
+Fort Wainwright,1034.02242100
+
+Show the ten largest bases by perimeter run by the airforce
+SELECT bases.site, bases.state, bases.perimeter  FROM bases INNER JOIN ComponentToBranch ON bases.component = ComponentToBranch.component WHERE bases.component = 'AF Active' OR bases.component = 'AF Reserve' OR bases.component = 'AF Guard' ORDER BY perimeter DESC LIMIT 10;
+Nellis Air Force Range,Nevada,489.09331860
+Eglin AFB (Eglin Main and Reservation),Florida,235.02625840
+The Barry M Goldwater Air Force Range,Arizona,227.56861510
+Utah Test and Training Range South UT,Utah,156.94185590
+UTTR - North,Utah,129.89177050
+Creech AFB,Nevada,123.27287570
+Tyndall AFB,Florida,118.35630100
+Edwards AFB,California,113.39049680
+Vandenberg Main Base,California,97.65642847
+Fort Richardson,Alaska,78.52652418
+
+Show all joint bases
+SELECT site, joint_base FROM bases WHERE NOT joint_base = 'N/A';
+Fort Richardson,Joint Base Elmendorf - Richardson
+Kelly AFB,Joint Base San Antonio
+Finegayan South,Joint Region Marianas
+Lakehurst,Joint Base McGuire - Dix - Lakehurst
+Randolph AFB,Joint Base San Antonio
+Umatilla Chemical Depot,Joint Base Lewis - McChord
+Sasa Valley,Joint Region Marianas
+Tenjo Vista,Joint Region Marianas
+Lackland AFB,Joint Base San Antonio
+McGuire,Joint Base McGuire - Dix - Lakehurst
+Magazine Reservoir Naval Magazine,Joint Region Marianas
+JBSA Sam Houston,Joint Base San Antonio
+Fort Lesley J McNair,Joint Base Myer - Henderson Hall
+JB Andrews,Joint Base Andrews
+Charleston Defense Fuel Support Point,Joint Base Charleston
+Joint Base Charleston Short Stay,Joint Base Charleston
+Naval Magazine,Joint Region Marianas
+Lackland Training Annex,Joint Base San Antonio
+Aiea,Joint Base Pearl Harbor - Hickam
+Ewa,Joint Base Pearl Harbor - Hickam
+Fort Lewis,Joint Base Lewis - McChord
+Apra Heights,Joint Region Marianas
+Andy South,Joint Region Marianas
+Joint Base Charleston Naval Weapons Station,Joint Base Charleston
+Canyon Lake Recreation Annex,Joint Base San Antonio
+JBAB Anacostia Bolling,Joint Base Anacostia - Bolling
+Honolulu,Joint Base Pearl Harbor - Hickam
+Naval Hospital,Joint Region Marianas
+JEBLCFS Wallops Island VA,Joint Expeditionary Base Little Creek - Fort Story
+Harmon,Joint Region Marianas
+NSA Andersen,Joint Region Marianas
+Yakima Training Center,Joint Base Lewis - McChord
+Elmendorf AFB,Joint Base Elmendorf - Richardson
+Waipahu,Joint Base Pearl Harbor - Hickam
+Finegayan,Joint Region Marianas
+Haarp Research Station,Joint Base Elmendorf - Richardson
+JBPHH Pearl Harbor HI,Joint Base Pearl Harbor - Hickam
+Tumon Tank Farm,Joint Region Marianas
+Seguin Auxiliary Field,Joint Base San Antonio
+Wahiawa,Joint Base Pearl Harbor - Hickam
+Dandan,Joint Region Marianas
+NAVBASE Guam,Joint Region Marianas
+Santa Rosa Parcel B,Joint Region Marianas
+Potts Tank Farm,Joint Region Marianas
+JEBLCFS East,Joint Expeditionary Base Little Creek - Fort Story
+Pearl City,Joint Base Pearl Harbor - Hickam
+Marbo,Joint Region Marianas
+Grant Training Annex,Joint Base Lewis - McChord
+Barrigada - NSA Andersen,Joint Region Marianas
+Dix,Joint Base McGuire - Dix - Lakehurst
+JNTEXPBASE Little Creek FS VA,Joint Expeditionary Base Little Creek - Fort Story
+Camp Bullis Training Annex,Joint Base San Antonio
+Charleston AFB,Joint Base Charleston
+Agana,Joint Region Marianas
+Barrigada - NAVBASE Guam,Joint Region Marianas
+North Air Force Auxiliary Field,Joint Base Charleston
+Kelly Field Annex,Joint Base San Antonio
+Tumon,Joint Region Marianas
+Kalaeloa,Joint Base Pearl Harbor - Hickam
+Fort Myer,Joint Base Myer - Henderson Hall
+Joint Base Charleston North Yard,Joint Base Charleston
+Tanguisson Point,Joint Region Marianas
+NAVBASE Guam, Naval Magazine,Joint Region Marianas
+Medical Center Annex,Joint Base San Antonio
+Ford Island,Joint Base Pearl Harbor - Hickam
+Nimitz Hill,Joint Region Marianas
+
+List all branches in order of how many military bases they operate
+SELECT ComponentToBranch.branch, COUNT(branch)  FROM bases INNER JOIN ComponentToBranch ON bases.component = ComponentToBranch.component GROUP BY branch ORDER BY COUNT(branch) DESC;
+ Army,319
+ Air Force,215
+ Navy,208
+ Marine,33
+
+List all States in order of how many military bases they contain
+SELECT state, COUNT(state) FROM bases GROUP BY state ORDER BY COUNT(state) DESC; 
+California,73
+Texas,42
+Florida,41
+Virginia,41
+Hawaii,39
+Alabama,32
+Maryland,25
+Guam,25
+Washington,20
+Georgia,20
+Arizona,19
+New York,17
+Pennsylvania,16
+North Carolina,16
+Alaska,15
+Tennessee,15
+Ohio,15
+Oklahoma,15
+Louisiana,14
+Illinois,14
+South Carolina,14
+Missouri,13
+Nevada,13
+Mississippi,12
+Utah,11
+Oregon,11
+Indiana,11
+Colorado,10
+New Mexico,10
+Massachusetts,10
+Minnesota,10
+New Jersey,10
+Michigan,9
+Nebraska,8
+West Virginia,8
+Idaho,7
+North Dakota,7
+Kansas,7
+Puerto Rico,7
+Wisconsin,7
+South Dakota,7
+Maine,7
+Kentucky,6
+Rhode Island,5
+Vermont,5
+Montana,5
+Arkansas,5
+District of Columbia,5
+Iowa,5
+Connecticut,5
+New Hampshire,4
+Delaware,4
+Wyoming,3
+
+List the branches in order of how much funding they receive
+SELECT branch, totalFunds FROM branches ORDER BY totalFunds DESC;
+Air Force,234.1160
+Navy,180.5000
+Army,177.3150
+Marine,50.3000
+
+Show all inactive bases and who used to operate them
+SELECT site, branch FROM bases INNER JOIN ComponentToBranch ON bases.component = ComponentToBranch.component WHERE bases.status = 'Inactive';
+Fort Monroe, Army
+McClellan AFB, Air Force
+NG Bethel ARM FMS, Army
+CSO Barbers Point HI, Navy
+Fort Wingate Depot Activity, Army
+Twin Cities AAP, Army
+Indiana Army Ammunition Plant, Army
+Green River Test Complex UT, Army
+Kipapa Ammo Storage Site, Army
+Point Arena Air Force Station, Air Force
+Fort Benjamin Harrison, Army
+Lone Star AAP (BRAC 2005), Army
+Rocky Mountain Arsenal, Army
+Jefferson Proving Ground, Army
+Riverbank AAP, Army
+George AFB, Air Force
+Savanna Depot Act, Army
+Cornhusker AAP, Army
+Fort Monmouth Main Post, Army
+Badger AAP, Army
+Fort Gillem, Army
+Joliet AAP Elwood, Army
+Longhorn AAP, Army
+
+Show all branches with more then 200,000 manpower
+SELECT branch, manpower FROM branches WHERE manpower > 200000;
+Air Force,252762
+Army,378835
+Navy,265716
+

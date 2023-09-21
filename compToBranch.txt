@@ -1,0 +1,9 @@
+AF Active, Air Force
+AF Guard, Air Force
+AF Reserve, Air Force
+Army Active, Army
+Army Guard, Army
+Army Reserve, Army
+Navy Active, Navy
+MC Active, Marine
+MC Reserve, Marine
